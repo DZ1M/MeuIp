@@ -18,10 +18,8 @@ namespace Api.Controllers
                 {
                     return Json(new { ip = this.HttpContext.Connection.RemoteIpAddress.ToString() });
                 }
-                else
-                {
-                    return this.HttpContext.Connection.RemoteIpAddress.ToString();
-                }
+
+                return this.HttpContext.Connection.RemoteIpAddress.ToString();
             }
             catch (Exception e)
             {
