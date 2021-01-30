@@ -1,16 +1,32 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
-    public sealed class IpController : ControllerBase
+    public sealed class IpController : Controller
     {
-
+        [HttpGet]
+        [AllowAnonymous]
+        public dynamic Get(string format)
+        {
+            try
+            {
+                if (format == "json")
+                {
+                    return Json(new { ip = this.HttpContext.Connection.RemoteIpAddress.ToString() });
+                }
+                else
+                {
+                    return this.HttpContext.Connection.RemoteIpAddress.ToString();
+                }
+            }
+            catch (Exception e)
+            {
+                return Json(e.Message);
+            }
+        }
     }
 }
