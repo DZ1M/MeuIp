@@ -5,6 +5,7 @@ using System;
 namespace Api.Controllers
 {
     [Route("[controller]")]
+    [Route("/")]
     [ApiController]
     public sealed class IpController : Controller
     {
