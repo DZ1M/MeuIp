@@ -6,9 +6,9 @@ Pode ser pego tanto em string quanto em json.
 Urls de exemplo:
 
 Retorno em string:
-http://ip.top1soft.com.br/ip
+http://ip.top1soft.com.br
 
 Retorno em Json:
-http://ip.top1soft.com.br/ip?format=json
+http://ip.top1soft.com.br?format=json
 
 Projeto em C# Net 5.0
